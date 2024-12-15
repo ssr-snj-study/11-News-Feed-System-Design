@@ -6,8 +6,13 @@ import (
 	"net/http"
 )
 
+type req struct {
+	Name     string `json:"name"`
+	Contents string `json:"contents"`
+}
+
 func PostFeed(c echo.Context) error {
-	b := new(model.User)
+	b := new(req)
 	if err := c.Bind(b); err != nil {
 		data := map[string]interface{}{
 			"message": err.Error(),

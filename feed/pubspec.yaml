@@ -40,7 +40,9 @@ dependencies:
   cloud_firestore: ^5.5.1
   firebase_messaging: ^15.1.6
   flutter_local_notifications: ^18.0.1
-  http: ^1.2.2
+  dio: ^5.0.0
+  dio_cookie_manager: ^2.0.0
+  cookie_jar: ^3.0.1
 
 dev_dependencies:
   flutter_test:

@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db00602a-f7e0-4ca0-8225-fc207d00c368" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/api/cmd/device/db.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/cmd/device/service.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed/assets/icon/ic_notification.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed/lib/notification_handler.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed/lib/notification_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/cmd/route.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/cmd/route.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/cmd/auth/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/cmd/auth/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/cmd/feed/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/cmd/feed/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/feed/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/feed/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/feed/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,24 +99,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/api/cmd/auth/database.go</url>
-          <line>10</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/api/cmd/feed/service.go</url>
-          <line>9</line>
+          <line>14</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/api/cmd/device/service.go</url>
-          <line>20</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/api/cmd/device/db.go</url>
-          <line>35</line>
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

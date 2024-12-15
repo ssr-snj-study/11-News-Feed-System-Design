@@ -32,6 +32,8 @@ func Auth(c echo.Context) error {
 	cookie.Name = "access-token"
 	cookie.Value = accessToken
 	cookie.HttpOnly = true
+	cookie.Secure = false
+	cookie.Path = "/"
 	cookie.Expires = time.Now().Add(time.Hour * 24)
 
 	c.SetCookie(cookie)
