@@ -1,5 +1,5 @@
 version: "3" # 버전에 따라서 기능이 달라질수 있다고 합니다.
-# docker-compose --env-file ./data/db.env -f .\db_compose.yml up -d
+# docker-compose --env-file ./data/db.env -f ./db_compose.yml up -d
 
 services: # 도커에서 사용하는 컨테이너를 정의
   master-0:
@@ -62,17 +62,17 @@ services: # 도커에서 사용하는 컨테이너를 정의
     networks:
       network:
         ipv4_address: 172.19.0.6
-  neo4j:
-    container_name: neo4j
-    image: neo4j
-    ports:
-      - 7474:7474    # for browser console
-      - 7687:7687    # for db
-    environment:
-      NEO4J_AUTH: neo4j/neo4j
-    networks:
-      network:
-        ipv4_address: 172.19.0.7
+#  neo4j:
+#    container_name: neo4j
+#    image: neo4j
+#    ports:
+#      - 7474:7474    # for browser console
+#      - 7687:7687    # for db
+#    environment:
+#      NEO4J_AUTH: neo4j/neo4j
+#    networks:
+#      network:
+#        ipv4_address: 172.19.0.7
 
   url:
     image: redis:7.4.1-bookworm
