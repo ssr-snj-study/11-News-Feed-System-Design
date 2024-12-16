@@ -41,5 +41,9 @@ func UpsertDevice(c echo.Context) error {
 			return err
 		}
 	}
-	return nil
+
+	response := map[string]interface{}{
+		"userId": b.UserId,
+	}
+	return c.JSON(http.StatusOK, response)
 }

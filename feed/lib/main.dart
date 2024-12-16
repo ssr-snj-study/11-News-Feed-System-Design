@@ -12,12 +12,13 @@ import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 
 final Dio dio = Dio(BaseOptions(baseUrl: 'http://10.0.2.2:1323/',headers: {"Content-Type": "application/json"}));
 final CookieJar cookieJar = CookieJar();
-const String userId = "test";
+const String userName = "test";
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // Firebase 초기화
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
 
   // Firebase Messaging 인스턴스 생성
   FirebaseMessaging messaging = FirebaseMessaging.instance;
@@ -64,13 +65,12 @@ class PostRequestScreen extends StatefulWidget {
 
 class _PostRequestScreenState extends State<PostRequestScreen> {
   // TextEditingController로 입력 필드 값 관리
-  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _feedController = TextEditingController();
 
   // POST 요청 함수
-  Future<void> sendPostRequest(String name, String feed) async {
+  Future<void> sendPostRequest(String feed) async {
     try {
-      final response = await dio.post('/api/v1/feed', data: {"name":name, "contents": feed});
+      final response = await dio.post('/api/v1/feed', data: {"name":userName,"userId":getUserNo(), "contents": feed});
       print('요청 헤더: ${response.requestOptions.headers}');
 
       if (response.statusCode == 200 || response.statusCode == 201) {
@@ -136,19 +136,14 @@ class _PostRequestScreenState extends State<PostRequestScreen> {
         child: Column(
           children: [
             TextField(
-              controller: _nameController,
-              decoration: InputDecoration(labelText: '이름'),
-            ),
-            TextField(
               controller: _feedController,
               decoration: InputDecoration(labelText: '내용'),
             ),
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                final name = _nameController.text;
                 final feed = _feedController.text;
-                sendPostRequest(name, feed); // POST 요청 호출
+                sendPostRequest(feed); // POST 요청 호출
               },
               child: Text('posting'),
             ),
@@ -162,7 +157,7 @@ class _PostRequestScreenState extends State<PostRequestScreen> {
 Future<void> login() async {
   try {
     final response = await dio.post('/auth', data: {
-      'name': userId,
+      'name': userName,
     });
 
     print('로그인 응답: ${response.data}');
@@ -180,9 +175,9 @@ Future<void> sendTokenToServer(String token) async {
   try {
     final response = await dio.post(
       "/SetDevice", // 경로 수정
-      data: {"token": token, "name": userId},
+      data: {"token": token, "name": userName},
     );
-
+    setUserNo(response.data["userId"]);
     if (response.statusCode == 200) {
       print("Token sent successfully");
     } else {
@@ -196,4 +191,24 @@ Future<void> sendTokenToServer(String token) async {
 // 요청 시 쿠키를 자동으로 관리하려면 쿠키 관리자를 추가합니다.
 void setupDio() {
   dio.interceptors.add(CookieManager(cookieJar)); // 쿠키 관리자를 인터셉터로 추가
+}
+
+class UserData {
+  static final UserData _instance = UserData._internal();
+
+  factory UserData() => _instance;
+
+  UserData._internal();
+
+  int? userNo;
+}
+
+// 데이터 설정
+void setUserNo(int userNo) {
+  UserData().userNo = userNo;
+}
+
+// 데이터 가져오기
+int? getUserNo() {
+  return UserData().userNo;
 }
