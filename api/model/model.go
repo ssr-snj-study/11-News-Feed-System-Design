@@ -29,7 +29,7 @@ type Posting struct {
 	Id          int       `json:"id"`
 	UserId      int       `json:"user_id"`
 	Contents    string    `json:"contents"`
-	Like        int       `json:"like"`
+	Likes       int       `json:"likes"`
 	CreatedTime time.Time `json:"created_time"`
 }
 
@@ -46,4 +46,14 @@ type Reply struct {
 
 func (Reply) TableName() string {
 	return "reply"
+}
+
+type Follower struct {
+	Id        int   `json:"id"`
+	UserId    int   `json:"user_id"`
+	Followers []int `json:"followers"`
+}
+
+func (Follower) TableName() string {
+	return "follower"
 }

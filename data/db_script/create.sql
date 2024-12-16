@@ -34,3 +34,11 @@ CREATE TABLE reply (
   CONSTRAINT reply_pkey PRIMARY KEY (id)
 );
 ALTER SEQUENCE reply_id_seq restart with 1;
+
+CREATE TABLE follower (
+    id serial4 NOT NULL,
+    user_id integer NOT NULL,
+    followers integer[],
+    CONSTRAINT follower_pkey PRIMARY KEY (id)
+);
+ALTER SEQUENCE follower_id_seq restart with 1;

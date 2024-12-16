@@ -3,15 +3,17 @@ package config
 import (
 	"context"
 	"fmt"
-	//"github.com/confluentinc/confluent-kafka-go/v2/kafka"
+	"github.com/confluentinc/confluent-kafka-go/v2/kafka"
 	"github.com/redis/go-redis/v9"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
+	"log"
 	"time"
 )
 
 var database *gorm.DB
-var stCache StCache
+var stCache *StCache
+var stKafka *StKafka
 
 //var stKafka StKafka
 
@@ -20,13 +22,13 @@ type StCache struct {
 	context context.Context
 }
 
-//type StKafka struct {
-//	StKafka *kafka.Producer
-//}
+type StKafka struct {
+	StKafka *kafka.Producer
+}
 
 func init() {
 	databaseInit()
-	//startTopic()
+	startTopic()
 	alarmInit()
 }
 
@@ -61,13 +63,13 @@ func DB() *gorm.DB {
 	return database
 }
 
-func Cache() StCache {
+func Cache() *StCache {
 	return stCache
 }
 
-//func KafkaProducer() StKafka {
-//	return stKafka
-//}
+func KafkaProducer() *StKafka {
+	return stKafka
+}
 
 func init() {
 	alarmInit()
@@ -123,44 +125,44 @@ func (c *StCache) IncrementWithTTL(key string, time time.Duration) error {
 	return nil
 }
 
-//func startTopic() {
-//	// Kafka Producer 설정
-//	producer, err := kafka.NewProducer(&kafka.ConfigMap{
-//		"bootstrap.servers":   "localhost:9093", // Kafka 브로커 주소
-//		"api.version.request": false,
-//	})
-//	if err != nil {
-//		log.Fatalf("Failed to create producer: %s", err)
-//	}
-//	stKafka.StKafka = producer
-//}
+func startTopic() {
+	// Kafka Producer 설정
+	producer, err := kafka.NewProducer(&kafka.ConfigMap{
+		"bootstrap.servers":   "localhost:9093", // Kafka 브로커 주소
+		"api.version.request": false,
+	})
+	if err != nil {
+		log.Fatalf("Failed to create producer: %s", err)
+	}
+	stKafka.StKafka = producer
+}
 
-//func (k *StKafka) ProduceMsg(message string) {
-//	topic := "example-topic"
-//	// 메시지 전송
-//	err := k.StKafka.Produce(&kafka.Message{
-//		TopicPartition: kafka.TopicPartition{
-//			Topic:     &topic,
-//			Partition: kafka.PartitionAny,
-//		},
-//		Value: []byte(message),
-//	}, nil)
-//
-//	go func() {
-//		for e := range k.StKafka.Events() {
-//			switch ev := e.(type) {
-//			case *kafka.Message:
-//				if ev.TopicPartition.Error != nil {
-//					log.Printf("Delivery failed: %v\n", ev.TopicPartition.Error)
-//				} else {
-//					log.Printf("Delivered message to %v\n", ev.TopicPartition)
-//				}
-//			}
-//		}
-//	}()
-//
-//	if err != nil {
-//		log.Fatalf("Failed to send message: %v", err)
-//	}
-//	k.StKafka.Flush(15 * 1000)
-//}
+func (k *StKafka) ProduceMsg(message string) {
+	topic := "example-topic"
+	// 메시지 전송
+	err := k.StKafka.Produce(&kafka.Message{
+		TopicPartition: kafka.TopicPartition{
+			Topic:     &topic,
+			Partition: kafka.PartitionAny,
+		},
+		Value: []byte(message),
+	}, nil)
+
+	go func() {
+		for e := range k.StKafka.Events() {
+			switch ev := e.(type) {
+			case *kafka.Message:
+				if ev.TopicPartition.Error != nil {
+					log.Printf("Delivery failed: %v\n", ev.TopicPartition.Error)
+				} else {
+					log.Printf("Delivered message to %v\n", ev.TopicPartition)
+				}
+			}
+		}
+	}()
+
+	if err != nil {
+		log.Fatalf("Failed to send message: %v", err)
+	}
+	k.StKafka.Flush(15 * 1000)
+}
