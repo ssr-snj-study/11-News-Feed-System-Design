@@ -1,7 +1,6 @@
 package feed
 
 import (
-	"api/internal"
 	"fmt"
 	"github.com/labstack/echo/v4"
 	"net/http"
@@ -30,8 +29,8 @@ func PostFeed(c echo.Context) error {
 		}
 		return c.JSON(http.StatusInternalServerError, data)
 	}
-	getFollowerToken(b.UserId)
-	internal.SendMessageToFCM()
+	//getFollowerToken(b.UserId)
+	//internal.SendMessageToFCM()
 
 	return nil
 }

@@ -1,25 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="ALL" />
+    <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db00602a-f7e0-4ca0-8225-fc207d00c368" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/webserver/cmd/app/app.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webserver/cmd/app/dependencies.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webserver/cmd/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webserver/cmd/routes/routes.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webserver/internal/auth/entity/auth.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webserver/internal/auth/handler/auth_handler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webserver/internal/auth/repository/auth_repository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webserver/internal/auth/repository/auth_repository_impl.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webserver/internal/auth/service/auth_service.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webserver/internal/device/entity/device.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webserver/internal/feed/entity/feed.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webserver/internal/shared/config/config.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webserver/internal/shared/database/database.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/11-News-Feed-System-Design.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/11-News-Feed-System-Design.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/cmd/auth/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/cmd/auth/service.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/cmd/feed/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/cmd/feed/service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/feed/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/feed/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/feed/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/api/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/api/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/feed/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed/linux/flutter/generated_plugin_registrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/feed/linux/flutter/generated_plugin_registrant.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/feed/linux/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/feed/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/feed/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed/windows/flutter/generated_plugin_registrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/feed/windows/flutter/generated_plugin_registrant.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/feed/windows/flutter/generated_plugins.cmake" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="GOROOT" url="file:///opt/homebrew/opt/go/libexec" />
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" url="file://$PROJECT_DIR$/../../Program Files/Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -32,30 +65,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "simuiji",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/Users/sim-uiji/workspace/11-News-Feed-System-Design/api/cmd",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.automatic.dependencies.download&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;simuiji&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/workspace/11-News-Feed-System-Design/webserver/internal/feed&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;go.autoimport&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\workspace\11-News-Feed-System-Design\webserver\internal\feed" />
+      <recent name="C:\workspace\11-News-Feed-System-Design\webserver\internal\device" />
       <recent name="$PROJECT_DIR$/api/cmd" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Go Build.go build webserver/cmd">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="11-News-Feed-System-Design" />
       <working_directory value="$PROJECT_DIR$" />
@@ -73,6 +116,15 @@
       <filePath value="$PROJECT_DIR$/api/main.go" />
       <method v="2" />
     </configuration>
+    <configuration name="go build webserver/cmd" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="11-News-Feed-System-Design" />
+      <working_directory value="$PROJECT_DIR$/webserver" />
+      <kind value="PACKAGE" />
+      <package value="webserver/cmd" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/webserver/cmd/main.go" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
       <module name="11-News-Feed-System-Design" />
       <working_directory value="$PROJECT_DIR$" />
@@ -84,11 +136,22 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build webserver/cmd" />
         <item itemvalue="Go Build.go build api" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="db00602a-f7e0-4ca0-8225-fc207d00c368" name="Changes" comment="" />
+      <created>1734324663478</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1734324663478</updated>
+    </task>
+    <servers />
+  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
@@ -100,8 +163,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/api/cmd/feed/service.go</url>
-          <line>14</line>
-          <option name="timeStamp" value="3" />
+          <line>17</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

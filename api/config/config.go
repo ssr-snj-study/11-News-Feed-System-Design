@@ -28,8 +28,8 @@ type StKafka struct {
 
 func init() {
 	databaseInit()
-	startTopic()
-	alarmInit()
+	//startTopic()
+	//alarmInit()
 }
 
 func databaseInit() {
@@ -72,19 +72,19 @@ func KafkaProducer() *StKafka {
 }
 
 func init() {
-	alarmInit()
+	//alarmInit()
 }
 
-func alarmInit() {
-	//connectInfo := fmt.Sprintf("%s:%s", os.Getenv("REDIS_HOST"), os.Getenv("REDIS_PORT"))
-	connectInfo := fmt.Sprintf("%s:%d", "127.0.0.1", 6380)
-	stCache.StCache = redis.NewClient(&redis.Options{
-		Addr: connectInfo, // Redis 서버 주소
-		//Password: os.Getenv("REDIS_PASSWORD"), // 비밀번호가 없다면 빈 문자열
-		Password: "snj", // 비밀번호가 없다면 빈 문자열
-	})
-	stCache.context = context.Background()
-}
+//func alarmInit() {
+//	//connectInfo := fmt.Sprintf("%s:%s", os.Getenv("REDIS_HOST"), os.Getenv("REDIS_PORT"))
+//	connectInfo := fmt.Sprintf("%s:%d", "127.0.0.1", 6388)
+//	stCache.StCache = redis.NewClient(&redis.Options{
+//		Addr: connectInfo, // Redis 서버 주소
+//		//Password: os.Getenv("REDIS_PASSWORD"), // 비밀번호가 없다면 빈 문자열
+//		Password: "snj", // 비밀번호가 없다면 빈 문자열
+//	})
+//	stCache.context = context.Background()
+//}
 
 func (c *StCache) GetRedisByKey(key string) string {
 	// 값 가져오기
@@ -125,17 +125,17 @@ func (c *StCache) IncrementWithTTL(key string, time time.Duration) error {
 	return nil
 }
 
-func startTopic() {
-	// Kafka Producer 설정
-	producer, err := kafka.NewProducer(&kafka.ConfigMap{
-		"bootstrap.servers":   "localhost:9093", // Kafka 브로커 주소
-		"api.version.request": false,
-	})
-	if err != nil {
-		log.Fatalf("Failed to create producer: %s", err)
-	}
-	stKafka.StKafka = producer
-}
+//func startTopic() {
+//	// Kafka Producer 설정
+//	producer, err := kafka.NewProducer(&kafka.ConfigMap{
+//		"bootstrap.servers":   "localhost:9093", // Kafka 브로커 주소
+//		"api.version.request": false,
+//	})
+//	if err != nil {
+//		log.Fatalf("Failed to create producer: %s", err)
+//	}
+//	stKafka.StKafka = producer
+//}
 
 func (k *StKafka) ProduceMsg(message string) {
 	topic := "example-topic"
