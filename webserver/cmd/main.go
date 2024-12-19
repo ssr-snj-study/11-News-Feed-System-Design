@@ -9,7 +9,7 @@ import (
 func main() {
 	// Initialize application
 	application := app.InitializeApp()
-	defer application.DB.Close()
+	//defer application.DB.Close()
 
 	// Set up dependencies
 	dependencies := app.InitializeDependencies(application)
