@@ -8,9 +8,10 @@ import (
 func RegisterRoutes(e *echo.Echo, deps *app.Dependencies) {
 	// Auth routes
 	e.POST("/auth", deps.AuthHandler.Auth)
+	e.POST("/SetDevice", deps.DeviceHandler.Device)
 
 	//// Feed routes
 	//api := e.Group("/api/v1")
-	//api.POST("/feed", deps.FeedHandler.PostFeed)
-	//api.GET("/feed", deps.FeedHandler.GetFeed)
+	////api.POST("/feed", deps.FeedHandler.PostFeed)
+	////api.GET("/feed", deps.FeedHandler.GetFeed)
 }

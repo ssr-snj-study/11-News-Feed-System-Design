@@ -1,9 +1,9 @@
 package repository
 
 import (
-	"webserver/internal/auth/entity"
+	"webserver/internal/shared/model"
 )
 
 type AuthRepository interface {
-	AuthCheck(userName string, user *entity.User) (int, error)
+	AuthCheck(userName string, user *model.User) (int, error)
 }

@@ -2,7 +2,7 @@ package repository
 
 import (
 	"gorm.io/gorm"
-	"webserver/internal/auth/entity"
+	"webserver/internal/shared/model"
 )
 
 type AuthRepositoryImpl struct {
@@ -13,7 +13,7 @@ func NewAuthRepository(db *gorm.DB) *AuthRepositoryImpl {
 	return &AuthRepositoryImpl{DB: db}
 }
 
-func (r *AuthRepositoryImpl) AuthCheck(userName string, user *entity.User) (int, error) {
+func (r *AuthRepositoryImpl) AuthCheck(userName string, user *model.User) (int, error) {
 	if res := r.DB.Where("name = ?", userName).Find(user); res.Error != nil {
 		return 0, res.Error
 	}

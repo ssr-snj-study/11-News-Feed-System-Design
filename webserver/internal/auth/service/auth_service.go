@@ -6,6 +6,7 @@ import (
 	"time"
 	"webserver/internal/auth/entity"
 	"webserver/internal/auth/repository"
+	"webserver/internal/shared/model"
 )
 
 type AuthService struct {
@@ -13,7 +14,7 @@ type AuthService struct {
 }
 
 func (s *AuthService) Authenticate(req *entity.Req) (*http.Cookie, error) {
-	user := new(entity.User)
+	user := new(model.User)
 	userId, err := s.Repo.AuthCheck(req.Name, user)
 	if err != nil {
 		return nil, err
