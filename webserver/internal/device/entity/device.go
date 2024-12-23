@@ -12,3 +12,8 @@ type Device struct {
 func (Device) TableName() string {
 	return "device"
 }
+
+type Req struct {
+	Id   int    `json:"id"`
+	Name string `json:"name"`
+}

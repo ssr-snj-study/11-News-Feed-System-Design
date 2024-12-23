@@ -37,3 +37,16 @@ func InitializeApp() *App {
 		DB:   db,
 	}
 }
+
+func (app *App) Close() {
+	// DB 연결 닫기
+	sqlDB, err := app.DB.DB()
+	if err == nil {
+		if err := sqlDB.Close(); err != nil {
+			log.Printf("error while closing database connection: %v", err)
+		} else {
+			log.Println("Database connection closed successfully.")
+		}
+	}
+	// Echo 서버 종료(필요한 경우 추가 가능)
+}

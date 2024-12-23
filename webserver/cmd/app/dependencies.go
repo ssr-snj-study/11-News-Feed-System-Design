@@ -14,7 +14,7 @@ func InitializeDependencies(app *App) *Dependencies {
 
 	// Auth dependencies
 	authRepo := repository.NewAuthRepository(app.DB)
-	authService := service.AuthService{authRepo}
+	authService := service.AuthService{Repo: authRepo}
 	authHandler := handler.AuthHandler{AuthService: &authService}
 
 	return &Dependencies{
