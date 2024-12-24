@@ -25,6 +25,10 @@ func InitializeDependencies(app *App) *Dependencies {
 	deviceService := deviceService.DeviceService{Repo: deviceRepo}
 	deviceHandler := deviceHandler.DeviceHandler{DeviceService: &deviceService}
 
+	feedRepo := feedRep.NewFeedRepository(app.DB)
+	feedService := feedService.FeedService{Repo: feedRepo}
+	feedHandler := feedHandler.FeedHandler{FeedService: &feedService}
+
 	return &Dependencies{
 		AuthHandler:   authHandler,
 		DeviceHandler: deviceHandler,

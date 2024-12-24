@@ -2,6 +2,13 @@ package entity
 
 import "time"
 
+type Req struct {
+	Name     string `json:"name"`
+	Contents string `json:"contents"`
+	UserId   int    `json:"userId"`
+	FeedId   int    `json:"feedId"`
+}
+
 type Posting struct {
 	Id          int       `json:"id"`
 	UserId      int       `json:"user_id"`
