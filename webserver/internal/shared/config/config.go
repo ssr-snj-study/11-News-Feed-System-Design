@@ -1,8 +1,9 @@
 package config
 
 import (
+	"encoding/json"
+	"fmt"
 	"os"
-	"strconv"
 )
 
 type AppConfig struct {
@@ -10,26 +11,27 @@ type AppConfig struct {
 }
 
 type DBConfig struct {
-	User     string
-	Password string
-	Host     string
-	Port     int
-	DBName   string
+	User     string `json:"user"`
+	Password string `json:"password"`
+	Host     string `json:"host"`
+	Port     string `json:"port"`
+	DBName   string `json:"db_name"`
 }
 
 func LoadConfig() (*AppConfig, error) {
-	port, err := strconv.Atoi(os.Getenv("DB_PORT"))
+	file, err := os.Open("./configs/config.json")
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("failed to open config file: %w", err)
+	}
+	defer file.Close()
+
+	decoder := json.NewDecoder(file)
+	config := &DBConfig{}
+	if err := decoder.Decode(config); err != nil {
+		return nil, fmt.Errorf("failed to decode config file: %w", err)
 	}
 
 	return &AppConfig{
-		DBConfig: DBConfig{
-			User:     os.Getenv("DB_USER"),
-			Password: os.Getenv("DB_PASSWORD"),
-			Host:     os.Getenv("DB_HOST"),
-			Port:     port,
-			DBName:   os.Getenv("DB_NAME"),
-		},
+		DBConfig: *config,
 	}, nil
 }

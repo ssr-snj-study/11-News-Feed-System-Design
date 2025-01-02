@@ -14,6 +14,6 @@ func RegisterRoutes(e *echo.Echo, deps *app.Dependencies) {
 	//// Feed routes
 	api := e.Group("/api/v1")
 	api.Use(middleware.JWTMiddleware())
-	////api.POST("/feed", deps.FeedHandler.PostFeed)
-	////api.GET("/feed", deps.FeedHandler.GetFeed)
+	api.POST("/feed", deps.FeedHandler.PostFeed)
+	api.GET("/feed", deps.FeedHandler.GetFeed)
 }

@@ -7,11 +7,15 @@ import (
 	deviceHandler "webserver/internal/device/handler"
 	deviceRep "webserver/internal/device/repository"
 	deviceService "webserver/internal/device/service"
+	feedHandler "webserver/internal/feed/handler"
+	feedRep "webserver/internal/feed/repository"
+	feedService "webserver/internal/feed/service"
 )
 
 type Dependencies struct {
 	AuthHandler   authHandler.AuthHandler
 	DeviceHandler deviceHandler.DeviceHandler
+	FeedHandler   feedHandler.FeedHandler
 }
 
 func InitializeDependencies(app *App) *Dependencies {
@@ -32,5 +36,6 @@ func InitializeDependencies(app *App) *Dependencies {
 	return &Dependencies{
 		AuthHandler:   authHandler,
 		DeviceHandler: deviceHandler,
+		FeedHandler:   feedHandler,
 	}
 }
