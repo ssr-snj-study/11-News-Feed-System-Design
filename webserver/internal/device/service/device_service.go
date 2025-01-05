@@ -16,7 +16,7 @@ func (s *DeviceService) UpsertDevice(req *entity.Req) (int, error) {
 	userId := 0
 
 	switch {
-	case device.Id == 0:
+	case device.UserId == 0:
 		return 0, errors.New("you have to register")
 	case device.DeviceToken == "":
 		userId, err = s.Repo.Create(req)
@@ -24,6 +24,7 @@ func (s *DeviceService) UpsertDevice(req *entity.Req) (int, error) {
 			return 0, err
 		}
 	case device.DeviceToken != req.DeviceToken:
+		req.Id = device.UserId
 		userId, err = s.Repo.Update(req)
 		if err != nil {
 			return 0, err

@@ -86,6 +86,19 @@ services: # 도커에서 사용하는 컨테이너를 정의
       network:
         ipv4_address: 172.19.0.8
 
+  graphql-engine:
+    image: hasura/graphql-engine:v1.0.0-beta.6
+    ports:
+      - "8080:8080"
+    depends_on:
+      - "pgpool"
+    environment:
+      HASURA_GRAPHQL_DATABASE_URL: postgres://snj:snj@172.19.0.6:5432/snj_db
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "true" # set to "false" to disable console
+    networks:
+      network:
+        ipv4_address: 172.19.0.9
+
 
 
 
