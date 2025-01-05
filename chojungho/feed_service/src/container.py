@@ -3,6 +3,8 @@ from common import conf, setup_logging
 from infrastructure.rdb.rdb_postgresql import AsyncEngine
 from infrastructure.nosql.redis_client import init_redis_pool
 from api.v1.auth.container import Container as AuthContainer
+from api.v1.feed.endpoint import router as feed_router
+from api.v1.feed.container import FeedContainer
 import pika
 
 
@@ -10,6 +12,7 @@ class Container(containers.DeclarativeContainer):
     wiring_config = containers.WiringConfiguration(
         packages=[
             "api.v1.auth",
+            "api.v1.feed",
         ],
     )
 
@@ -41,11 +44,18 @@ class Container(containers.DeclarativeContainer):
         ),
     )
 
-    # api
+    # Auth container
     auth_container = providers.Container(
         AuthContainer,
         logger=logger,
         postgres_engine=postgres_engine,
         redis_client=redis_client,
         rabbimq_connection=rabbimq_connection,
+    )
+
+    # Feed container
+    feed_container = providers.Container(
+        FeedContainer,
+        postgres_engine=postgres_engine,
+        redis_client=redis_client,
     )

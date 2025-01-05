@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "feed-service"
+version = "0.1.0"
+description = ""
+authors = ["CHOJUNGHO96 <jo4186@naver.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
