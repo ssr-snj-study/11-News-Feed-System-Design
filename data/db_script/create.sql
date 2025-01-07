@@ -35,10 +35,10 @@ CREATE TABLE reply (
 );
 ALTER SEQUENCE reply_id_seq restart with 1;
 
-CREATE TABLE follower (
-    id serial4 NOT NULL,
-    user_id integer NOT NULL,
-    followers integer[],
-    CONSTRAINT follower_pkey PRIMARY KEY (id)
+CREATE TABLE followers (
+   id SERIAL PRIMARY KEY,
+   user_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+   follower_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+   UNIQUE(user_id, follower_id)
 );
-ALTER SEQUENCE follower_id_seq restart with 1;
+ALTER SEQUENCE followers_id_seq restart with 1;
