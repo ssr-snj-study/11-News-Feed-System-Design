@@ -37,8 +37,8 @@ ALTER SEQUENCE reply_id_seq restart with 1;
 
 CREATE TABLE followers (
    id SERIAL PRIMARY KEY,
-   user_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-   follower_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+   user_id INT NOT NULL REFERENCES user_tb(id) ON DELETE CASCADE,
+   follower_id INT NOT NULL REFERENCES user_tb(id) ON DELETE CASCADE,
    UNIQUE(user_id, follower_id)
 );
 ALTER SEQUENCE followers_id_seq restart with 1;
